@@ -25,7 +25,8 @@ function radioCheck() {
 }
 
 function emptyValue() {
-    $place.value = null;
+    $startPoint.value = null;
+    $destination.value = null;
     $schedule.value = null;
     $must.value = null;
     $rent.value = null;
@@ -62,7 +63,7 @@ $button.addEventListener('click', e => {
     e.preventDefault();
     appearLoader();
 
-    var userInputData = `나는 ${$startPoint}에서 출발해 ${$destination.value}로 여행을 가려고 해. ${$schedule.value} 정도 머물 예정이고, ${$must.value}는 꼭 들러보고 싶어. `;
+    var userInputData = `나는 ${$startPoint.value}에서 출발해 ${$destination.value}로 여행을 가려고 해. ${$schedule.value} 정도 머물 예정이고, ${$must.value}는 꼭 들러보고 싶어. `;
     if (radioCheck() === 'yes') {
         S
         userInputData += `그리고 차량은 가져가기로 했어.`
