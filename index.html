@@ -33,7 +33,7 @@
 
                 <p>출발지는 어디인가요?</p>
                 <div>
-                    <select id="start-point" required>
+                    <select id="start-point">
                         <option class="hidden" value="" disabled selected>출발지</option>
                         <option value="서울">서울</option>
                         <option value="경기도">경기도</option>
@@ -52,7 +52,7 @@
 
                 <p>어디로 여행하시나요?</p>
                 <div>
-                    <select id="destination" required>
+                    <select id="destination">
                         <option class="hidden" value="" disabled selected>도착지</option>
                         <option value="서울">서울</option>
                         <option value="경기도">경기도</option>
@@ -71,16 +71,10 @@
 
                 <p>여행 일정을 입력해주세요.</p>
                 <div>
-                    <!-- <input id="schedule" class="w-1/2 h-10 mt-1 border-2 rounded-lg border-slate-300" type="text"
-                    placeholder=" 예)3박 4일"> -->
-                    <input type="text" id="schedule">
+                    <input type="date" id="start-date">
+                    <p> ~ </p>
+                    <input type="date" id="end-date">
                 </div>
-
-                <!-- <p class="flex justify-center mt-2 text-lg font-bold">꼭 들어갔으면 하는 여행지가 있나요?</p>
-            <div class="flex justify-center">
-                <input id="must-visit" class="w-1/2 h-10 mt-1 border-2 border-slate-300 rounded-lg" type="text"
-                    placeholder=" 예)성산일출봉">
-            </div> -->
 
                 <p>차량을 가지고 가시나요?</p>
                 <div>

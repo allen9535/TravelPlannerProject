@@ -177,12 +177,24 @@ body {
     margin-top: 10px;
 }
 
-#left-side select,
-#schedule {
+#left-side select {
     width: 50%;
     height: 40px;
     border: solid 2px rgb(148 163 184);
     border-radius: 0.5rem;
+}
+
+#start-date,
+#end-date {
+    width: 20%;
+    height: 40px;
+    border: solid 2px rgb(148 163 184);
+    border-radius: 0.5rem;
+}
+
+#start-date+p {
+    align-items: center;
+    margin: 0 10px;
 }
 
 #left-side #radio-no {
@@ -206,7 +218,6 @@ body {
 }
 
 #right-side #announce {
-    /* class="grid text-center items-center h-96 text-slate-400" */
     display: flex;
     height: 350px;
     align-items: center;
@@ -224,7 +235,10 @@ body {
 
 #footer p {
     text-align: center;
-    vertical-align: middle;
     font-size: 0.875rem;
     line-height: 1.25rem;
+}
+
+select option[value=""] {
+    display: none;
 }

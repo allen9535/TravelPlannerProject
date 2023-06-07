@@ -80,3 +80,7 @@
 
 - 리팩토링 시도
 - TailwindCSS 사용 중단, 전부 CSS 파일로 변경
+
+### 23년 06월 07일
+
+- 일정 입력을 받을 때 input type='text'에서 input type='date'로 변경

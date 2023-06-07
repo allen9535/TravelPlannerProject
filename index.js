@@ -6,8 +6,8 @@ var data = [{
 
 const $startPoint = document.querySelector('#start-point');
 const $destination = document.querySelector('#destination');
-const $schedule = document.querySelector('#schedule');
-const $must = document.querySelector('#must-visit');
+const $startDate = document.querySelector('#start-date');
+const $endDate = document.querySelector('#end-date');
 const $rent = document.getElementsByName('car-rent');
 const $button = document.querySelector('button');
 const $loader = document.querySelector('#loader');
@@ -31,7 +31,7 @@ function stopScroll() {
 }
 
 function makeData() {
-    var userInputData = `나는 ${$startPoint.value}에서 출발해 ${$destination.value}로 여행을 가려고 해. ${$schedule.value} 정도 머물 예정이야. `;
+    var userInputData = `나는 ${$startPoint.value}에서 출발해 ${$destination.value}로 여행을 가려고 해. 일정은 ${$startDate} 부터 ${$endDate} 까지야. `;
 
     if (radioCheck() === 'yes') {
         userInputData += `그리고 차량은 가져가기로 했어.`
@@ -60,7 +60,8 @@ function radioCheck() {
 function emptyValue() {
     $startPoint.value = null;
     $destination.value = null;
-    $schedule.value = null;
+    $startDate.value = null;
+    $endDate.value = null;
     $rent.value = null;
 }
 
@@ -71,7 +72,7 @@ function valueCheck() {
     } else if ($destination.value === '') {
         alert('도착지를 입력해주세요.');
         location.reload();
-    } else if ($schedule.value === '') {
+    } else if (($startDate.value === '') || ($endDate.value === '')) {
         alert('여행 일정을 입력해주세요.');
         location.reload();
     }
