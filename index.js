@@ -1,8 +1,9 @@
-var url = 'https://estsoft-openai-api.jejucodingcamp.workers.dev/';
+const url = 'https://estsoft-openai-api.jejucodingcamp.workers.dev/';
 var data = [{
     role: 'system',
-    content: 'assistant는 느긋한 여행을 추천하고, 날짜별로 여행 계획을 세워 Day1, Day2와 같은 방식으로 표시하며 아주 상세한 답변을 주는 여행 전문가이다.'
+    content: 'assistant는 느긋한 여행을 추천하고, 날짜별로 여행 계획을 세우며 아주 상세한 답변을 주는 여행 전문가이다.'
 }];
+
 const $startPoint = document.querySelector('#start-point');
 const $destination = document.querySelector('#destination');
 const $schedule = document.querySelector('#schedule');
@@ -12,8 +13,17 @@ const $button = document.querySelector('button');
 const $loader = document.querySelector('#loader');
 const $body = document.querySelector('body');
 
+
 function appearLoader() {
     $loader.style.display = 'block';
+}
+
+function removeLoader() {
+    $loader.style.display = 'none';
+}
+
+function continueScroll() {
+    $body.style.overflow = 'visible'
 }
 
 function stopScroll() {
@@ -55,7 +65,17 @@ function emptyValue() {
     $rent.value = null;
 }
 
-function makeQuestion() {
+function appearContents(res) {
+    document.querySelector('#announce').style.display = 'none';
+    document.querySelector('#contents').innerText = res.choices[0].message.content;
+}
+
+function getTravelPlan() {
+    appearLoader();
+    stopScroll();
+    makeData();
+    emptyValue();
+
     fetch(url, {
         method: 'POST',
         headers: {
@@ -66,28 +86,14 @@ function makeQuestion() {
 
     }).then(res => res.json())
         .then(res => {
-            document.querySelector('#announce').remove();
-            document.querySelector('#contents').innerText = res.choices[0].message.content;
+            appearContents(res);
             removeLoader();
             continueScroll();
-            document.location.href = '#contents-title'
         });
-}
-
-function removeLoader() {
-    $loader.style.display = 'none';
-}
-
-function continueScroll() {
-    $body.style.overflow = 'visible'
 }
 
 $button.addEventListener('click', e => {
     e.preventDefault();
 
-    appearLoader();
-    stopScroll();
-    makeData();
-    emptyValue();
-    makeQuestion();
+    getTravelPlan();
 });
