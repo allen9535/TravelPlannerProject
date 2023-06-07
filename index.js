@@ -31,7 +31,7 @@ function stopScroll() {
 }
 
 function makeData() {
-    var userInputData = `나는 ${$startPoint.value}에서 출발해 ${$destination.value}로 여행을 가려고 해. ${$schedule.value} 정도 머물 예정이고, ${$must.value}는 꼭 들러보고 싶어. `;
+    var userInputData = `나는 ${$startPoint.value}에서 출발해 ${$destination.value}로 여행을 가려고 해. ${$schedule.value} 정도 머물 예정이야. `;
 
     if (radioCheck() === 'yes') {
         userInputData += `그리고 차량은 가져가기로 했어.`
@@ -61,8 +61,20 @@ function emptyValue() {
     $startPoint.value = null;
     $destination.value = null;
     $schedule.value = null;
-    $must.value = null;
     $rent.value = null;
+}
+
+function valueCheck() {
+    if ($startPoint.value === '') {
+        alert('출발지를 입력해주세요.');
+        location.reload();
+    } else if ($destination.value === '') {
+        alert('도착지를 입력해주세요.');
+        location.reload();
+    } else if ($schedule.value === '') {
+        alert('여행 일정을 입력해주세요.');
+        location.reload();
+    }
 }
 
 function appearContents(res) {
@@ -94,6 +106,6 @@ function getTravelPlan() {
 
 $button.addEventListener('click', e => {
     e.preventDefault();
-
+    valueCheck();
     getTravelPlan();
 });

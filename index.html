@@ -6,15 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>chatGPT</title>
+    <link rel="stylesheet" href="./style.css">
     <script src="./index.js" defer type="module"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="w-screen h-screen">
-    <div id="loader" class="w-full h-full absolute z-50 opacity-80 hidden bg-black" role="status">
-        <svg aria-hidden="true"
-            class="absolute w-1/2 h-1/2 inset-x-1/4 inset-y-1/4 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
-            viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+<body>
+    <div id="loader" role="status">
+        <svg aria-hidden="true" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
                 d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
                 fill="currentColor" />
@@ -24,62 +22,91 @@
         </svg>
     </div>
 
-    <div id="header" class="w-full h-1/5 grid lg:grid-cols-2 grid-cols-1 border-b-2 border-slate-400">
-        <h1 class="grid items-center justify-items-center"><img class="w-1/2 h-1/2" src="./img/fly-away.png"></h1>
+    <div id="header">
+        <img src="./assets/fly-away.png" alt="logo">
     </div>
 
-    <div id="main" class="w-full h-max grid grid-cols-1 lg:grid-cols-2 mt-10 mb-10">
-        <form class="w-full h-full" action="post">
-            <p id="form-start" class="flex justify-center text-xl font-bold">여행 일정 입력</p>
+    <div id="main" class="container">
+        <div id="left-side">
+            <form action="post">
+                <h2>여행 일정 입력</h2>
 
-            <p class="flex justify-center mt-2 text-lg font-bold">출발지는 어디인가요?</p>
-            <div class="flex justify-center">
-                <input id="start-point" class="w-1/2 h-10 mt-1 border-2 rounded-lg border-slate-300" type="text"
-                    placeholder=" 예)서울">
-            </div>
+                <p>출발지는 어디인가요?</p>
+                <div>
+                    <select id="start-point" required>
+                        <option class="hidden" value="" disabled selected>출발지</option>
+                        <option value="서울">서울</option>
+                        <option value="경기도">경기도</option>
+                        <option value="강원도">강원도</option>
+                        <option value="부산">부산</option>
+                        <option value="인천">인천</option>
+                        <option value="대구">대구</option>
+                        <option value="대전">대전</option>
+                        <option value="광주">광주</option>
+                        <option value="충청도">충청도</option>
+                        <option value="전라도">전라도</option>
+                        <option value="경상도">경상도</option>
+                        <option value="제주도">제주도</option>
+                    </select>
+                </div>
 
-            <p class="flex justify-center mt-2 text-lg font-bold">어디로 여행하시나요?</p>
-            <div class="flex justify-center">
-                <input id="destination" class="w-1/2 h-10 mt-1 border-2 rounded-lg border-slate-300" type="text"
-                    placeholder=" 예)제주도">
-            </div>
+                <p>어디로 여행하시나요?</p>
+                <div>
+                    <select id="destination" required>
+                        <option class="hidden" value="" disabled selected>도착지</option>
+                        <option value="서울">서울</option>
+                        <option value="경기도">경기도</option>
+                        <option value="강원도">강원도</option>
+                        <option value="부산">부산</option>
+                        <option value="인천">인천</option>
+                        <option value="대구">대구</option>
+                        <option value="대전">대전</option>
+                        <option value="광주">광주</option>
+                        <option value="충청도">충청도</option>
+                        <option value="전라도">전라도</option>
+                        <option value="경상도">경상도</option>
+                        <option value="제주도">제주도</option>
+                    </select>
+                </div>
 
-            <p class="flex justify-center mt-2 text-lg text-center font-bold">여행 일정을 입력해주세요.</p>
-            <div class="flex justify-center">
-                <input id="schedule" class="w-1/2 h-10 mt-1 border-2 rounded-lg border-slate-300" type="text"
-                    placeholder=" 예)3박 4일">
-            </div>
+                <p>여행 일정을 입력해주세요.</p>
+                <div>
+                    <!-- <input id="schedule" class="w-1/2 h-10 mt-1 border-2 rounded-lg border-slate-300" type="text"
+                    placeholder=" 예)3박 4일"> -->
+                    <input type="text" id="schedule">
+                </div>
 
-            <p class="flex justify-center mt-2 text-lg font-bold">꼭 들어갔으면 하는 여행지가 있나요?</p>
+                <!-- <p class="flex justify-center mt-2 text-lg font-bold">꼭 들어갔으면 하는 여행지가 있나요?</p>
             <div class="flex justify-center">
                 <input id="must-visit" class="w-1/2 h-10 mt-1 border-2 border-slate-300 rounded-lg" type="text"
                     placeholder=" 예)성산일출봉">
-            </div>
+            </div> -->
 
-            <p class="flex justify-center text-lg font-bold">차량을 가지고 가시나요?</p>
-            <div class="flex justify-center mt-1">
-                <input name="car-rent" type="radio" value="yes">예
-                <input name="car-rent" class="ml-20" type="radio" value="no">아니오
-            </div>
+                <p>차량을 가지고 가시나요?</p>
+                <div>
+                    <input name="car-rent" type="radio" value="yes">예
+                    <input id="radio-no" name="car-rent" type="radio" value="no">아니오
+                </div>
 
-            <div class="flex justify-center mt-1">
-                <button class="w-1/2 h-10 mt-3 bg-blue-400 border-2 border-blue-400 rounded-lg text-white"
-                    type="submit">일정 생성</button>
-            </div>
-        </form>
+                <div>
+                    <button type="submit">일정 생성</button>
+                </div>
+            </form>
+        </div>
 
-        <div class="w-full h-full">
-            <p class="flex justify-center mt-10 lg:mt-0 text-xl font-bold">여행 일정</p>
-            <div id="contents" class="mt-3 mr-3 ml-3 border-2 border-slate-300 rounded-lg">
-                <p id="announce" class="grid text-center items-center h-96 text-slate-400">여행 일정을
-                    입력하고 '일정 생성' 버튼을 누르면 여행 일정이 자동으로 생성됩니다.</p>
+        <div id="right-side">
+            <div>
+                <p>여행 일정</p>
+                <div id="contents">
+                    <p id="announce">정보를 입력하고 '일정 생성' 버튼을 누르면 여행 일정이 자동으로 생성됩니다.</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="footer" class="w-full h-max grid-cols-1 border-t-2 border-slate-400">
-        <p class="text-center text-sm">
-            (c)Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, nam quas hic aliquid assumenda cumque
+    <div id="footer">
+        <p>
+            (c) Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, nam quas hic aliquid assumenda cumque
             reprehenderit et eaque doloremque saepe fugiat id atque, a illo minima quo rerum facilis voluptate.
         </p>
     </div>
