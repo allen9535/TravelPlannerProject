@@ -178,6 +178,13 @@ body {
 }
 
 #left-side select {
+    width: 20%;
+    height: 40px;
+    border: solid 2px rgb(148 163 184);
+    border-radius: 0.5rem;
+}
+
+#left-side #destination {
     width: 50%;
     height: 40px;
     border: solid 2px rgb(148 163 184);
@@ -215,6 +222,7 @@ body {
     margin: 10px 30px;
     border: solid 2px rgb(148 163 184);
     border-radius: 0.5rem;
+    overflow: auto;
 }
 
 #right-side #announce {

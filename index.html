@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>chatGPT</title>
-    <link rel="stylesheet" href="./style.css">
-    <script src="./index.js" defer type="module"></script>
+    <link rel="stylesheet" href="./assets/stylesheets/style.css">
+    <script src="./assets/javascripts/index.js" defer type="module"></script>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
     </div>
 
     <div id="header">
-        <img src="./assets/fly-away.png" alt="logo">
+        <img src="./assets/images/fly-away.png" alt="logo">
     </div>
 
     <div id="main" class="container">
@@ -33,39 +33,18 @@
 
                 <p>출발지는 어디인가요?</p>
                 <div>
-                    <select id="start-point">
-                        <option class="hidden" value="" disabled selected>출발지</option>
-                        <option value="서울">서울</option>
-                        <option value="경기도">경기도</option>
-                        <option value="강원도">강원도</option>
-                        <option value="부산">부산</option>
-                        <option value="인천">인천</option>
-                        <option value="대구">대구</option>
-                        <option value="대전">대전</option>
-                        <option value="광주">광주</option>
-                        <option value="충청도">충청도</option>
-                        <option value="전라도">전라도</option>
-                        <option value="경상도">경상도</option>
-                        <option value="제주도">제주도</option>
+                    <select id="start-point-wide">
+                        <option class="hidden" value="" disabled selected>도 / 광역시</option>
+                    </select>
+                    <select id="start-point-details">
+                        <option class="hidden" value="" disabled selected>세부 지역</option>
                     </select>
                 </div>
 
                 <p>어디로 여행하시나요?</p>
                 <div>
                     <select id="destination">
-                        <option class="hidden" value="" disabled selected>도착지</option>
-                        <option value="서울">서울</option>
-                        <option value="경기도">경기도</option>
-                        <option value="강원도">강원도</option>
-                        <option value="부산">부산</option>
-                        <option value="인천">인천</option>
-                        <option value="대구">대구</option>
-                        <option value="대전">대전</option>
-                        <option value="광주">광주</option>
-                        <option value="충청도">충청도</option>
-                        <option value="전라도">전라도</option>
-                        <option value="경상도">경상도</option>
-                        <option value="제주도">제주도</option>
+                        <option class="hidden" value="" disabled selected>목적지</option>
                     </select>
                 </div>
 
@@ -89,11 +68,9 @@
         </div>
 
         <div id="right-side">
-            <div>
-                <p>여행 일정</p>
-                <div id="contents">
-                    <p id="announce">정보를 입력하고 '일정 생성' 버튼을 누르면 여행 일정이 자동으로 생성됩니다.</p>
-                </div>
+            <p>여행 일정</p>
+            <div id="contents">
+                <p id="announce">정보를 입력하고 '일정 생성' 버튼을 누르면 여행 일정이 자동으로 생성됩니다.</p>
             </div>
         </div>
     </div>
