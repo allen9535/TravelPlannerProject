@@ -34,21 +34,31 @@ const gyeongnam = [
     '창원', '거제', '김해', '밀양', '사천', '양산', '진주', '통영', '거창',
     '고성', '남해', '산청', '의령', '창녕', '하동', '함안', '함양', '합천'
 ];
+const $startPointWide = document.querySelector('#start-point-wide');
+const $startPointDetails = document.querySelector('#start-point-details');
+const $destination = document.querySelector('#destination');
 
 
-export function createWideRegion(selectTag) {
+export function createWideRegion() {
     wideRegion.forEach(wideRegion => {
         const optionTag = document.createElement('option');
         optionTag.value = wideRegion;
         optionTag.innerText = wideRegion;
-        selectTag.appendChild(optionTag);
+        $startPointWide.appendChild(optionTag);
+    });
+
+    wideRegion.forEach(wideRegion => {
+        const optionTag = document.createElement('option');
+        optionTag.value = wideRegion;
+        optionTag.innerText = wideRegion;
+        $destination.appendChild(optionTag);
     });
 }
 
-export function createStartPointDetails(startPointWide, startPointDetails, wideRegionValue) {
-    startPointDetails.innerHTML = '<option class="hidden" value="" disabled selected>세부 지역</option>';
-    startPointDetails.style.display = 'block';
-    startPointWide.style.width = '20%';
+export function createStartPointDetails(wideRegionValue) {
+    $startPointDetails.innerHTML = '<option class="hidden" value="" disabled selected>세부 지역</option>';
+    $startPointDetails.style.display = 'block';
+    $startPointWide.style.width = '20%';
     switch (wideRegionValue) {
         case '서울':
         case '부산':
@@ -59,15 +69,15 @@ export function createStartPointDetails(startPointWide, startPointDetails, wideR
         case '울산':
         case '세종':
         case '제주':
-            startPointDetails.style.display = 'none';
-            startPointWide.style.width = '50%';
+            $startPointDetails.style.display = 'none';
+            $startPointWide.style.width = '50%';
             break;
         case '경기도':
             gyeonggi.forEach(detail => {
                 const optionTag = document.createElement('option');
                 optionTag.value = detail;
                 optionTag.innerText = detail;
-                startPointDetails.appendChild(optionTag);
+                $startPointDetails.appendChild(optionTag);
             });
             break;
         case '강원도':
@@ -75,7 +85,7 @@ export function createStartPointDetails(startPointWide, startPointDetails, wideR
                 const optionTag = document.createElement('option');
                 optionTag.value = detail;
                 optionTag.innerText = detail;
-                startPointDetails.appendChild(optionTag);
+                $startPointDetails.appendChild(optionTag);
             });
             break;
         case '충청북도':
@@ -83,7 +93,7 @@ export function createStartPointDetails(startPointWide, startPointDetails, wideR
                 const optionTag = document.createElement('option');
                 optionTag.value = detail;
                 optionTag.innerText = detail;
-                startPointDetails.appendChild(optionTag);
+                $startPointDetails.appendChild(optionTag);
             });
             break;
         case '충청남도':
@@ -91,7 +101,7 @@ export function createStartPointDetails(startPointWide, startPointDetails, wideR
                 const optionTag = document.createElement('option');
                 optionTag.value = detail;
                 optionTag.innerText = detail;
-                startPointDetails.appendChild(optionTag);
+                $startPointDetails.appendChild(optionTag);
             });
             break;
         case '전라북도':
@@ -99,7 +109,7 @@ export function createStartPointDetails(startPointWide, startPointDetails, wideR
                 const optionTag = document.createElement('option');
                 optionTag.value = detail;
                 optionTag.innerText = detail;
-                startPointDetails.appendChild(optionTag);
+                $startPointDetails.appendChild(optionTag);
             });
             break;
         case '전라남도':
@@ -107,7 +117,7 @@ export function createStartPointDetails(startPointWide, startPointDetails, wideR
                 const optionTag = document.createElement('option');
                 optionTag.value = detail;
                 optionTag.innerText = detail;
-                startPointDetails.appendChild(optionTag);
+                $startPointDetails.appendChild(optionTag);
             });
             break;
         case '경상북도':
@@ -115,7 +125,7 @@ export function createStartPointDetails(startPointWide, startPointDetails, wideR
                 const optionTag = document.createElement('option');
                 optionTag.value = detail;
                 optionTag.innerText = detail;
-                startPointDetails.appendChild(optionTag);
+                $startPointDetails.appendChild(optionTag);
             });
             break;
         case '경상남도':
@@ -123,9 +133,8 @@ export function createStartPointDetails(startPointWide, startPointDetails, wideR
                 const optionTag = document.createElement('option');
                 optionTag.value = detail;
                 optionTag.innerText = detail;
-                startPointDetails.appendChild(optionTag);
+                $startPointDetails.appendChild(optionTag);
             });
             break;
     }
-    console.log()
 }
