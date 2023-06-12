@@ -147,13 +147,13 @@ body {
     margin: 50px 0;
 }
 
-#left-side,
-#right-side {
+#leftSide,
+#rightSide {
     width: 100%;
     height: 100%;
 }
 
-#left-side h2 {
+#leftSide h2 {
     display: flex;
     justify-content: center;
     font-size: 2.25rem;
@@ -161,8 +161,8 @@ body {
     font-weight: 700;
 }
 
-#left-side p,
-#right-side p {
+#leftSide p,
+#rightSide p {
     display: flex;
     justify-content: center;
     margin-top: 15px;
@@ -171,44 +171,53 @@ body {
     font-weight: 700;
 }
 
-#left-side div {
+#leftSide div {
     display: flex;
     justify-content: center;
     margin-top: 10px;
 }
 
-#left-side select {
-    width: 20%;
+#startPointWide,
+#startPointDetails {
     height: 40px;
     border: solid 2px rgb(148 163 184);
     border-radius: 0.5rem;
 }
 
-#left-side #destination {
+#startPointWide {
+    width: 50%;
+}
+
+#startPointDetails {
+    display: none;
+    width: 20%;
+}
+
+#leftSide #destination {
     width: 50%;
     height: 40px;
     border: solid 2px rgb(148 163 184);
     border-radius: 0.5rem;
 }
 
-#start-date,
-#end-date {
+#startDate,
+#endDate {
     width: 20%;
     height: 40px;
     border: solid 2px rgb(148 163 184);
     border-radius: 0.5rem;
 }
 
-#start-date+p {
+#startDate+p {
     align-items: center;
     margin: 0 10px;
 }
 
-#left-side #radio-no {
+#leftSide #carRentNo {
     margin-left: 50px;
 }
 
-#left-side button {
+#leftSide button {
     width: 50%;
     height: 40px;
     margin-top: 10px;
@@ -218,14 +227,14 @@ body {
     color: rgb(255 255 255);
 }
 
-#right-side #contents {
+#rightSide #contents {
     margin: 10px 30px;
     border: solid 2px rgb(148 163 184);
     border-radius: 0.5rem;
     overflow: auto;
 }
 
-#right-side #announce {
+#rightSide #announce {
     display: flex;
     height: 350px;
     align-items: center;

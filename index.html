@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>chatGPT</title>
-    <link rel="stylesheet" href="./assets/stylesheets/style.css">
-    <script src="./assets/javascripts/main.js" defer type="module"></script>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <script src="./javascripts/main.js" defer type="module"></script>
 </head>
 
 <body>
@@ -23,20 +23,20 @@
     </div>
 
     <div id="header">
-        <img src="./assets/images/fly-away.png" alt="logo">
+        <img src="./assets/fly-away.png" alt="logo">
     </div>
 
     <div id="main" class="container">
-        <div id="left-side">
+        <div id="leftSide">
             <form action="post">
                 <h2>여행 일정 입력</h2>
 
                 <p>출발지는 어디인가요?</p>
                 <div>
-                    <select id="start-point-wide">
+                    <select id="startPointWide">
                         <option class="hidden" value="" disabled selected>도 / 광역시</option>
                     </select>
-                    <select id="start-point-details">
+                    <select id="startPointDetails">
                         <option class="hidden" value="" disabled selected>세부 지역</option>
                     </select>
                 </div>
@@ -50,15 +50,15 @@
 
                 <p>여행 일정을 입력해주세요.</p>
                 <div>
-                    <input type="date" id="start-date">
+                    <input type="date" id="startDate">
                     <p> ~ </p>
-                    <input type="date" id="end-date">
+                    <input type="date" id="endDate">
                 </div>
 
                 <p>차량을 가지고 가시나요?</p>
                 <div>
-                    <input name="car-rent" type="radio" value="yes">예
-                    <input id="radio-no" name="car-rent" type="radio" value="no">아니오
+                    <input name="carRent" type="radio" value="yes">예
+                    <input id="carRentNo" name="carRent" type="radio" value="no">아니오
                 </div>
 
                 <div>
@@ -67,7 +67,7 @@
             </form>
         </div>
 
-        <div id="right-side">
+        <div id="rightSide">
             <p>여행 일정</p>
             <div id="contents">
                 <p id="announce">정보를 입력하고 '일정 생성' 버튼을 누르면 여행 일정이 자동으로 생성됩니다.</p>

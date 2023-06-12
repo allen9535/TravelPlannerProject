@@ -1,13 +1,43 @@
 # 국내 여행 계획 자동 생성 서비스
 
 ## 1. 목표와 기능
+* 1-1. 목표
+    * 일자별 세심한 계획을 통해 더욱 즐거운 경험 도모
+    * 국내 여행 계획 수립의 간편화 지향
+* 1-2. 기능
+    * openAI API를 활용하여 질의·응답
+    * 여행지를 국내로 한정하여, 간편한 출발지와 여행지의 선택
+
 
 ## 2. 개발 환경 및 배포 URL
+* 2-1. 개발 환경
+    * JavaScript, HTML, CSS
+* 2-2. 배포 URL
+    * https://allen9535.github.io/TravelPlannerProject/
+
 
 ## 3. 프로젝트 구조
+```
+│  .prettierignore
+│  index.html
+│  README.md
+│
+├─assets
+│      fly-away.png
+│
+├─javascripts
+│      checkers.js
+│      data-hanlder.js
+│      dropdown.js
+│      main.js
+│      util-functions.js
+│
+└─stylesheets
+        style.css
+```
+
 
 ## 4. 진행 과정
-
 * 23년 05월 30일
     * 프로젝트 시작
     * TailwindCSS를 활용하여 디자인 완료, chatGPT와의 요청·응답 성공
@@ -42,5 +72,12 @@
 * 23년 06월 09일
     * JavaScript 기능 분리 완료
 
-* 23년 06월 09일
-    * JavaScript 기능 분리 완료
+* 23년 06월 12일
+    * 리팩토링
+        * 프로젝트 구조 일부 변경
+        * 파일명, 변수명 등 일부 변경
+        * (checkers.js) 값을 체크하는 각 항목들은 모두 독립적, 이에 별개의 if문으로 변경
+        * (data-handler.js) 유저의 입력값을 별도의 변수를 선언하여 사용하도록 변경
+        * (dropdown.js) 기존에 변수로 선언했던 지역에 대한 정보를 배열과 객체를 이용하여 정리
+        * (dropdown.js) switch문 제거, 유저가 선택한 지역값에 따라 세부 지역란의 지역이 결정되도록 변경
+        * (dropdown.js) 기존에 도/광역시에 따라 세부 지역 입력란이 사라지던 것을, 도/광역시에 따라 세부 지역 입력란이 나타나도록 변경

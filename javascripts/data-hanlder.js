@@ -9,10 +9,16 @@ const data = [{
 export function makeData() {
     valueCheck();
 
+    var startPointWideValue = document.querySelector('#startPointWide').value;
+    var startPointDetails = document.querySelector('#startPointDetails').value;
+    var destinationValue = document.querySelector('#destination').value;
+    var startDateValue = document.querySelector('#startDate').value;
+    var endDateValue = document.querySelector('#endDate').value;
+
     var userInputData = `
-    나는 ${document.querySelector('#start-point-wide').value}의 ${document.querySelector('#start-point-details').value}에서 출발해 
-    ${document.querySelector('#destination').value}로 여행을 가려고 해. 
-    일정은 ${document.querySelector('#start-date').value} 부터 ${document.querySelector('#end-date').value} 까지야.
+    나는 ${startPointWideValue}의 ${startPointDetails}에서 출발해 
+    ${destinationValue}로 여행을 가려고 해. 
+    일정은 ${startDateValue} 부터 ${endDateValue} 까지야.
     이에 대해 일자별로 아주 세세한 계획을 세워줘.
     `;
 

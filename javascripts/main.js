@@ -1,13 +1,13 @@
 import { createWideRegion, createStartPointDetails } from "./dropdown.js";
-import { makeData } from './datahandle.js';
-import { beforeAnswer, afterAnswer } from './utilfunctions.js';
+import { makeData } from './data-hanlder.js';
+import { beforeAnswer, afterAnswer } from './util-functions.js';
 
 const url = 'https://estsoft-openai-api.jejucodingcamp.workers.dev/';
 
 
 window.onload = createWideRegion();
 
-document.querySelector('#start-point-wide').addEventListener('change', function () {
+document.querySelector('#startPointWide').addEventListener('change', function () {
     createStartPointDetails(this.value);
 });
 
